@@ -5,6 +5,7 @@ import '@/assets/scss/normalize.scss'
 
 const App = () => (
   <>
+
     <HomePage />
   </>
 )
