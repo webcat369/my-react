@@ -1,0 +1,6 @@
+@types
+node_modules
+test
+template
+webpack.config.js
+dist
