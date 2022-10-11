@@ -1,0 +1,23 @@
+.border{
+  margin: 20px;
+}
+.board-row{
+  display: flex;
+}
+// .board-row:after {
+//   clear: both;
+//   content: "";
+//   display: table;
+// }
+
+.clearfix {
+  zoom:1;
+  &:after {
+    content:"";
+    clear:both;
+    display:block;
+    height:0;
+    overflow:hidden;
+    visibility:hidden;
+  }
+}
