@@ -26,8 +26,6 @@ const useCountDown = (props:Partial<IProps>) => {
 
   useEffect(() => {
     const timerId = setInterval(() => tickRef.current(), 1000)
-    console.log('tick', timerId)
-
     return () => clearInterval(timerId)
   }, [])
 

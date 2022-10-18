@@ -5,6 +5,7 @@ interface Iprops{
   mss:number
 }
 
+// 定时器
 export default function CountDown (props:Iprops) {
   const { mss } = props
   const [ time ] = useCountDown({ mss })

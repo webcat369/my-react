@@ -1,0 +1,64 @@
+#app {
+  height: 100vh;
+}
+
+header {
+  height: 70px;
+  background-color: #fff;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo{
+    width: 120px;
+  }
+  .right{
+    height: 40px;
+    .ant-dropdown-link{
+      height: 60px;
+      display: block;
+      color: #333;
+      &:hover{
+          color: #1890ff;
+      }
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    span {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.container{
+  display: flex;
+  // justify-content: space-between;
+  .aside{
+      height: calc(100vh - 140px);
+  }
+  .container_box{
+      flex: 1;
+      box-sizing: border-box;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      .container_content{
+        height: calc(100vh - 210px);
+        overflow: hidden;
+      }
+  }
+}
+
+
+
+footer {
+  height: 70px;
+  background: #001529;
+  color:#fff;
+  text-align: center;
+  line-height: 70px;
+}
