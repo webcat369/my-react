@@ -37,6 +37,7 @@ export default function Edit () {
           <Button key="1" type="primary" onClick={() =>  setIsModalVisible(true)}>提交文章</Button>,
         ]}
       >
+
         <Modal zIndex={99999} title="填写文章标题" visible={isModalVisible}  onOk={handleOk} onCancel={() =>  setIsModalVisible(false)}>
           <p>Some contents...</p>
           <p>Some contents...</p>
