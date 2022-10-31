@@ -39,7 +39,9 @@ const App = () => {
         <Aside />
         <div className='container_box'>
           <Bread />
-          <Outlet/>
+          <div className="container_content">
+            <Outlet/>
+          </div>
         </div>
       </div>
       <footer>Footer</footer>

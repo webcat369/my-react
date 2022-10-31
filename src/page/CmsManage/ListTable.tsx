@@ -20,6 +20,8 @@ export default function ListTable () {
     name: 'John Brown',
     address: 'New York No. 1 Lake Park',
   } ])
+  // 分页
+  const [ pagination, setPagination ] = useState({ current: 1, pageSize: 1, total: 0 })
 
   // 每一列
   const columns = [
@@ -54,12 +56,21 @@ export default function ListTable () {
     },
   ]
 
-  // 请求文章列表
-  useEffect(() => {
-    ArticleListApi().then((res:any) => {
+  const getArticleList = (current:number, pageSize:number) => {
+    ArticleListApi({
+      num: current,
+      count: pageSize,
+    }).then((res:any) => {
+      console.log(res.data, 'res')
+      let { num, count, total } = res.data
+      setPagination({ current: num, pageSize: count, total })
       if (res.errCode == 0) {
         let newArr = JSON.parse(JSON.stringify(res.data.arr))
 
+        /*
+            1. 要给每个数组项加key，让key=id
+            2. 需要有一套标签结构，赋予一个属性
+        */
         // 声明一个空数组保存对象obj
         let myarr:any = []
         newArr.map((item:any) => {
@@ -74,12 +85,20 @@ export default function ListTable () {
         console.log(myarr)
       }
     })
+  }
+
+  // 分页的函数
+  const pageChange = (arg:any) => getArticleList(arg.current, arg.pageSize)
+
+  // 请求文章列表
+  useEffect(() => {
+    getArticleList(pagination.current, pagination.pageSize)
   }, [])
 
   return (
     <div className='list_table'>
       {/* columns列 dataSource数据 */}
-      <Table columns={columns} showHeader={false} dataSource={arr} />
+      <Table columns={columns} showHeader={false} dataSource={arr} onChange={pageChange} pagination={pagination}/>
     </div>
   )
 }

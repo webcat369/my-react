@@ -10,4 +10,4 @@ export const LoginApi = (params:object) => request.post('login', params)
 
 
 // 获取文章列表
-export const ArticleListApi = () => request.get('/article')
+export const ArticleListApi = (params?:object) => request.get('/article', params)
